@@ -1,0 +1,1036 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeAI - Learn Coding with AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #080b16;
+    --card: #11172a;
+    --primary: #7357ff;
+    --secondary: #00d4ff;
+    --text: #ffffff;
+    --muted: #9ba5bd;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,11,22,0.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #ffffff12;
+}
+
+.navbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    background: linear-gradient(90deg,#00d4ff,#8b5cf6);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #c4c9d8;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .3s;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg,#7055ff,#00bfff);
+    color: white;
+}
+
+.btn-outline {
+    border: 1px solid #7357ff;
+    color: white;
+    background: transparent;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: #6745ff;
+    filter: blur(180px);
+    opacity: .25;
+    right: 5%;
+    top: 10%;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+}
+
+.tag {
+    color: #00d4ff;
+    background: #00d4ff13;
+    border: 1px solid #00d4ff40;
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(42px,5vw,65px);
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg,#00d4ff,#a78bfa);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 16px;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    background: linear-gradient(145deg,#171e3c,#101426);
+    border: 1px solid #ffffff20;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 80px #7357ff20;
+    animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%,100% {transform: translateY(0)}
+    50% {transform: translateY(-12px)}
+}
+
+.code-header {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 25px;
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+.code {
+    color: #b5c5e9;
+    line-height: 2;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+.purple {color:#c084fc}
+.blue {color:#38bdf8}
+.green {color:#4ade80}
+.yellow {color:#facc15}
+
+/* STATS */
+
+.stats {
+    border-top: 1px solid #ffffff15;
+    border-bottom: 1px solid #ffffff15;
+    padding: 35px 0;
+    background: #0c1020;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align: center;
+    gap: 20px;
+}
+
+.stat h2 {
+    color: #00d4ff;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.stat p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* COMMON SECTION */
+
+section {
+    padding: 90px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* SEARCH */
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    display: flex;
+    background: var(--card);
+    border: 1px solid #ffffff20;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 12px;
+    color: white;
+    font-size: 15px;
+}
+
+.search-box button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+/* FILTER */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 1px solid #ffffff20;
+    background: #11172a;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+/* COURSE CARDS */
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.course-card {
+    background: var(--card);
+    border: 1px solid #ffffff12;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    border-color: #7357ff;
+}
+
+.course-top {
+    padding: 28px;
+    background: linear-gradient(135deg,#202b50,#17152f);
+}
+
+.course-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.course-top h3 {
+    font-size: 21px;
+}
+
+.course-body {
+    padding: 22px;
+}
+
+.course-body p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    color: #aab5ce;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.course-link {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: #7357ff20;
+    color: #a99aff;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.course-link:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.no-results {
+    display: none;
+    text-align: center;
+    color: var(--muted);
+    padding: 30px;
+}
+
+/* AI SECTION */
+
+.ai-section {
+    background: linear-gradient(120deg,#151333,#0b1c34);
+    border-top: 1px solid #ffffff10;
+    border-bottom: 1px solid #ffffff10;
+}
+
+.ai-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.ai-content h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.ai-content p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.ai-features {
+    display: grid;
+    gap: 15px;
+}
+
+.ai-feature {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.ai-feature span {
+    color: #00d4ff;
+    font-size: 22px;
+}
+
+.ai-demo {
+    background: #0a1021;
+    padding: 25px;
+    border: 1px solid #ffffff20;
+    border-radius: 15px;
+}
+
+.ai-demo h3 {
+    margin-bottom: 20px;
+}
+
+.ai-input {
+    width: 100%;
+    background: #171e35;
+    border: 1px solid #ffffff20;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.ai-answer {
+    color: #aebbd6;
+    line-height: 1.7;
+    font-size: 14px;
+    margin-top: 20px;
+    white-space: pre-wrap;
+}
+
+/* WHY US */
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.why-card {
+    padding: 30px;
+    background: var(--card);
+    border: 1px solid #ffffff12;
+    border-radius: 14px;
+}
+
+.why-card .icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.why-card h3 {
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* CTA */
+
+.cta {
+    text-align: center;
+    background: linear-gradient(120deg,#25205a,#102d4b);
+    border-radius: 20px;
+    padding: 65px 25px;
+}
+
+.cta h2 {
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.cta p {
+    color: #b7c3dc;
+    margin-bottom: 25px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 50px 0 25px;
+    background: #060913;
+    border-top: 1px solid #ffffff12;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-content p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-top: 15px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    color: #aab5ce;
+}
+
+.copyright {
+    text-align: center;
+    color: #778198;
+    border-top: 1px solid #ffffff15;
+    margin-top: 35px;
+    padding-top: 25px;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media(max-width:900px) {
+    .hero-content,
+    .ai-box {
+        grid-template-columns: 1fr;
+    }
+
+    .course-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+@media(max-width:650px) {
+    .menu-toggle {display:block}
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #10162a;
+        padding: 25px;
+        flex-direction: column;
+    }
+
+    .nav-links.show {display:flex}
+
+    .nav-buttons {display:none}
+
+    .hero {padding: 70px 0}
+
+    .course-grid,
+    .why-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2,
+    .ai-content h2,
+    .cta h2 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+<div class="container navbar">
+
+<a href="#" class="logo">CodeAI.</a>
+
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home" onclick="closeMenu()">Home</a></li>
+<li><a href="#courses" onclick="closeMenu()">Courses</a></li>
+<li><a href="#ai" onclick="closeMenu()">AI Assistant</a></li>
+<li><a href="#about" onclick="closeMenu()">About</a></li>
+</ul>
+
+<div class="nav-buttons">
+<a href="#courses" class="btn btn-outline">Explore</a>
+<a href="#signup" class="btn btn-primary">Get Started</a>
+</div>
+
+</div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+<div class="container hero-content">
+
+<div>
+<div class="tag">🚀 Next Generation Coding Platform</div>
+
+<h1>
+Learn to Code.<br>
+Build Your <span class="gradient-text">Future with AI.</span>
+</h1>
+
+<p>
+Master programming with interactive tutorials, practical projects
+and AI-powered learning assistance. Start your coding journey
+today and turn your ideas into reality.
+</p>
+
+<div class="hero-actions">
+<a href="#courses" class="btn btn-primary">Explore Courses →</a>
+<a href="#ai" class="btn btn-outline">Try AI Assistant ✨</a>
+</div>
+</div>
+
+<div class="hero-image">
+<div class="code-header">
+<div class="dot" style="background:#ff5f57"></div>
+<div class="dot" style="background:#febc2e"></div>
+<div class="dot" style="background:#28c840"></div>
+</div>
+
+<div class="code">
+<span class="purple">const</span> future = {
+<br>
+&nbsp;&nbsp;name: <span class="green">"Your Name"</span>,
+<br>
+&nbsp;&nbsp;skills: [
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">"HTML"</span>,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">"CSS"</span>,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">"JavaScript"</span>,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">"Python"</span>,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">"AI & ML"</span>
+<br>
+&nbsp;&nbsp;],
+<br>
+&nbsp;&nbsp;success: <span class="blue">true</span>
+<br>
+};
+<br><br>
+<span class="blue">console.log</span>(<span class="green">"Welcome to CodeAI!"</span>);
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- STATS -->
+
+<div class="stats">
+<div class="container stats-grid">
+<div class="stat"><h2>20+</h2><p>Programming Topics</p></div>
+<div class="stat"><h2>100+</h2><p>Learning Lessons</p></div>
+<div class="stat"><h2>AI</h2><p>Smart Assistance</p></div>
+<div class="stat"><h2>24/7</h2><p>Learn Anytime</p></div>
+</div>
+</div>
+
+<!-- COURSES -->
+
+<section id="courses">
+<div class="container">
+
+<div class="section-heading">
+<div class="tag">LEARN PROGRAMMING</div>
+<h2>Explore Our <span class="gradient-text">Coding Courses</span></h2>
+<p>Everything you need to become a professional developer.</p>
+</div>
+
+<div class="search-box">
+<input type="text" id="searchInput"
+placeholder="Search HTML, Python, JavaScript...">
+<button onclick="searchCourses()">Search</button>
+</div>
+
+<div class="filters">
+<button class="filter-btn active" onclick="filterCourses('all',this)">All</button>
+<button class="filter-btn" onclick="filterCourses('web',this)">Web Development</button>
+<button class="filter-btn" onclick="filterCourses('programming',this)">Programming</button>
+<button class="filter-btn" onclick="filterCourses('advanced',this)">Advanced</button>
+</div>
+
+<div class="course-grid" id="courseGrid">
+
+<div class="course-card" data-category="web">
+<div class="course-top"><div class="course-icon">🌐</div><h3>HTML Tutorial</h3></div>
+<div class="course-body">
+<p>Learn HTML from basics to advanced and create beautiful web pages.</p>
+<div class="course-info"><span>📚 Beginner</span><span>20 Lessons</span></div>
+<a href="#" class="course-link">Start Learning →</a>
+</div>
+</div>
+
+<div class="course-card" data-category="web">
+<div class="course-top"><div class="course-icon">🎨</div><h3>CSS Tutorial</h3></div>
+<div class="course-body">
+<p>Master styling, animations, responsive layouts and modern CSS.</p>
+<div class="course-info"><span>📚 Beginner</span><span>25 Lessons</span></div>
+<a href="#" class="course-link">Start Learning →</a>
+</div>
+</div>
+
+<div class="course-card" data-category="web">
+<div class="course-top"><div class="course-icon">⚡</div><h3>JavaScript</h3></div>
+<div class="course-body">
+<p>Learn JavaScript and build interactive websites and applications.</p>
+<div class="course-info"><span>📚 Intermediate</span><span>30 Lessons</span></div>
+<a href="#" class="course-link">Start Learning →</a>
+</div>
+</div>
+
+<div class="course-card" data-category="programming">
+<div class="course-top"><div class="course-icon">🐍</div><h3>Python</h3></div>
+<div class="course-body">
+<p>Learn Python programming, automation, data science and AI basics.</p>
+<div class="course-info"><span>📚 Beginner</span><span>35 Lessons</span></div>
+<a href="#" class="course-link">Start Learning →</a>
+</div>
+</div>
+
+<div class="course-card" data-category="programming">
+<div class="course-top"><div class="course-icon">☕</div><h3>Java Programming</h3></div>
+<div class="course-body">
+<p>Understand object-oriented programming and Java application development.</p>
+<div class="course-info"><span>📚 Intermediate</span><span>28 Lessons</span></div>
+<a href="#" class="course-link">Start Learning →</a>
+</div>
+</div>
+
+<div class="course-card" data-category="programming">
+<div class="course-top"><div class="course-icon">💻</div><h3>C / C++</h3></div>
+<div class="course-body">
+<p>Master programming fundamentals, memory and data structures.</p>
+<div class="course-info"><span>📚 Beginner</span><span>30 Lessons</span></div>
+<a href="#" class="course-link">Start Learning →</a>
+</div>
+</div>
+
+<div class="course-card" data-category="web">
+<div class="course-top"><div class="course-icon">⚛️</div><h3>React JS</h3></div>
+<div class="course-body">
+<p>Build modern, fast and reusable user interfaces with React.</p>
+<div class="course-info"><span>📚 Advanced</span><span>25 Lessons</span></div>
+<a href="#" class="course-link">Start Learning →</a>
+</div>
+</div>
+
+<div class="course-card" data-category="advanced">
+<div class="course-top"><div class="course-icon">🤖</div><h3>Artificial Intelligence</h3></div>
+<div class="course-body">
+<p>Explore AI, machine learning and intelligent applications.</p>
+<div class="course-info"><span>📚 Advanced</span><span>32 Lessons</span></div>
+<a href="#" class="course-link">Start Learning →</a>
+</div>
+</div>
+
+<div class="course-card" data-category="advanced">
+<div class="course-top"><div class="course-icon">🗄️</div><h3>Database & SQL</h3></div>
+<div class="course-body">
+<p>Learn database management, SQL queries and data handling.</p>
+<div class="course-info"><span>📚 Intermediate</span><span>22 Lessons</span></div>
+<a href="#" class="course-link">Start Learning →</a>
+</div>
+</div>
+
+</div>
+
+<div class="no-results" id="noResults">
+No courses found. Try another keyword!
+</div>
+
+</div>
+</section>
+
+<!-- AI ASSISTANT -->
+
+<section class="ai-section" id="ai">
+<div class="container ai-box">
+
+<div class="ai-content">
+<div class="tag">✨ YOUR PERSONAL AI CODING PARTNER</div>
+
+<h2>Code Smarter with <span class="gradient-text">AI Assistant</span></h2>
+
+<p>
+Stuck on a coding problem? Need help understanding a concept?
+Our AI assistant section is designed to make learning programming
+easier and more interactive.
+</p>
+
+<div class="ai-features">
+<div class="ai-feature"><span>✓</span> Understand programming concepts</div>
+<div class="ai-feature"><span>✓</span> Get help with coding errors</div>
+<div class="ai-feature"><span>✓</span> Generate code examples</div>
+<div class="ai-feature"><span>✓</span> Learn step by step</div>
+</div>
+</div>
+
+<div class="ai-demo">
+<h3>🤖 Ask CodeAI</h3>
+<input class="ai-input" id="aiQuestion"
+placeholder="Example: Explain HTML in simple words...">
+
+<button class="btn btn-primary" style="width:100%"
+onclick="askAI()">Ask AI Assistant →</button>
+
+<div class="ai-answer" id="aiAnswer">
+Your AI coding assistant will help you here.
+</div>
+
+<p style="font-size:11px;color:#778198;margin-top:15px">
+Demo interface: connect an AI API to enable real AI responses.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section id="about">
+<div class="container">
+
+<div class="section-heading">
+<div class="tag">WHY CODEAI?</div>
+<h2>Learn Better. Build <span class="gradient-text">Faster.</span></h2>
+<p>A better way to learn programming and develop real-world skills.</p>
+</div>
+
+<div class="why-grid">
+
+<div class="why-card">
+<div class="icon">🎯</div>
+<h3>Beginner Friendly</h3>
+<p>Easy explanations and structured tutorials for students and beginners.</p>
+</div>
+
+<div class="why-card">
+<div class="icon">🤖</div>
+<h3>AI Powered Learning</h3>
+<p>Get intelligent learning assistance and improve your coding skills.</p>
+</div>
+
+<div class="why-card">
+<div class="icon">🚀</div>
+<h3>Practical Projects</h3>
+<p>Build real-world projects and apply what you learn in tutorials.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+
+<section id="signup">
+<div class="container">
+<div class="cta">
+<h2>Ready to Start Your Coding Journey?</h2>
+<p>Learn programming, explore AI and build something amazing.</p>
+<a href="#courses" class="btn btn-primary">Start Learning Today →</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+<div class="container">
+
+<div class="footer-content">
+
+<div>
+<a href="#" class="logo">CodeAI.</a>
+<p>Learn Coding. Build Projects.<br>Shape Your Future with AI.</p>
+</div>
+
+<div class="footer-links">
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#ai">AI Assistant</a>
+<a href="#about">About Us</a>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 CodeAI. All Rights Reserved.
+</div>
+
+</div>
+</footer>
+
+<script>
+
+// MOBILE MENU
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
+
+function closeMenu() {
+    document.getElementById("navLinks").classList.remove("show");
+}
+
+// COURSE FILTER
+
+let currentCategory = "all";
+
+function filterCourses(category, button) {
+    currentCategory = category;
+
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+    searchCourses();
+}
+
+// SEARCH COURSES
+
+function searchCourses() {
+    let search = document.getElementById("searchInput")
+        .value.toLowerCase();
+
+    let cards = document.querySelectorAll(".course-card");
+    let visible = 0;
+
+    cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        let category = card.dataset.category;
+
+        let matchesSearch = text.includes(search);
+        let matchesCategory =
+            currentCategory === "all" ||
+            category === currentCategory;
+
+        if(matchesSearch && matchesCategory) {
+            card.style.display = "block";
+            visible++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    document.getElementById("noResults").style.display =
+        visible === 0 ? "block" : "none";
+}
+
+document.getElementById("searchInput")
+.addEventListener("input", searchCourses);
+
+// AI DEMO
+
+function askAI() {
+    let question = document.getElementById("aiQuestion").value;
+    let answer = document.getElementById("aiAnswer");
+
+    if(question.trim() === "") {
+        answer.innerText = "Please enter a coding question first.";
+        return;
+    }
+
+    answer.innerText =
+        "This is a demo interface. To get real AI answers, connect an AI API through a secure backend.\n\nYour question: " + question;
+}
+
+</script>
+
+</body>
+</html>
